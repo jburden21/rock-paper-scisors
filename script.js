@@ -12,7 +12,6 @@ function computerPlay(){
   }
 }
 function playerPlay(){
-
 let playerChoice = prompt("").toLowerCase();
 
 if (playerChoice === 'rock'){
@@ -25,11 +24,14 @@ else {
   return 'scissors';
   }
 }
-const playerSelection = playerPlay();
-const computerSelection = computerPlay();
 
-function playRound(playerSelection, computerSelection) {
-  
+
+
+function playRound() {
+
+  const playerSelection = playerPlay();
+  const computerSelection = computerPlay();
+
   if ((computerSelection === 'rock' && playerSelection === 'paper') || (computerSelection === 'paper' && playerSelection === 'rock') || (computerSelection === 'scissors' && playerSelection === 'paper')){
     return "You Lose! "+ computerSelection + " beats " + playerSelection;
   }
@@ -42,7 +44,14 @@ function playRound(playerSelection, computerSelection) {
   }
 } 
 
-//console.log(playRound(playerSelection, computerSelection));
+function game(){
+  console.log(playRound())
+  console.log(playRound())
+  console.log(playRound())
+  console.log(playRound())
+  console.log(playRound())
+}
+game();
 
 
 
