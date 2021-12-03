@@ -24,24 +24,32 @@ else {
   return 'scissors';
   }
 }
-
-
-
+let playerScore = 0;
+let compScore = 0;
 function playRound() {
-
   const playerSelection = playerPlay();
   const computerSelection = computerPlay();
 
   if ((computerSelection === 'rock' && playerSelection === 'paper') || (computerSelection === 'paper' && playerSelection === 'rock') || (computerSelection === 'scissors' && playerSelection === 'paper')){
+    compScore++;
+    if(compScore === 5){
+      return "You Lose! Computer wins with a score of: "+compScore;
+    }
     return "You Lose! "+ computerSelection + " beats " + playerSelection;
+    
   }
 
   else if (computerSelection === playerSelection){
     return "You Tied!";
   }
   else {
+    playerScore++;
+    if(playerScore === 5){
+      return "You Win! Player wins with a score of: "+playerScore;
+    }
     return "You Win! " + playerSelection + " beats " + computerSelection;
-  }
+
+    }
 } 
 
 function game(){
@@ -50,6 +58,12 @@ function game(){
   console.log(playRound())
   console.log(playRound())
   console.log(playRound())
+  if(playerScore > compScore){
+    console.log("You Win! Player wins with a score of: "+playerScore)
+  }
+  else if(compScore > playerScore){
+    return "You Lose! Computer wins with a score of: "+compScore;
+  }
 }
 game();
 
